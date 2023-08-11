@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sign in </title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #343a40;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .CSLogo {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .CSLogo {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+        
+        img {
+            height: 35px; /* Adjust the height as needed */
+            margin-right: 10px;
+        }
+        .login-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        
+        .login-form label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .login-form button {
+            background-color: #649E8F;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+        }
+        .smallerText {
+            font-size: smaller;
+        }
+        #password {
+            padding-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="CSLogo">
+    <img src="logo/logo2.png" alt="Logo">
+    </div>
+    <div class="login-form">
+       
+        <h2> Sign in </h2>
+        <form action="#" method="post">
+            <label for="name"> *Email: </label>
+            <input type="email" id="name" name="name" required>
+            
+            <label for="Password"> *Password: </label>
+            <input type="password" id="password" name="Password" required>
+            
+            <p class="smallerText"> Please use your LMS password to log in. </p>
+            <br>
+            <br>
+
+            <button type="button" onclick="window.location.href='home_page.html'"> Sign In </button>
+        </form>
+    </div>
+</body>
+</html>

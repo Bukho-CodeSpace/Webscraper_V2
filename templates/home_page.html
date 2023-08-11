@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        img {
+            height: 35px; /* Adjust the height as needed */
+            margin-right: 10px;
+        }
+
+        .top-section {
+            background-color: #343a40;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .home-button,
+        .logout-button,
+        .search-button {
+            background-color: #649E8F;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .search-input {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .left-section {
+            width: 20%;
+            background-color: #f5f5f5;
+            padding: 10px;
+            overflow-y: scroll;
+            height: calc(100vh - 40px);
+        }
+
+        .course-button {
+            background-color: #e5562e;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .scroll-bar {
+            width: 6px;
+            background-color: #ccc;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .main-section {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .loading-section {
+            font-size: 18px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .info-section {
+            margin-top: 20px;
+        }
+
+        .extract-button {
+            background-color: #7A7A7A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            align-self: flex-end;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Section -->
+    <div class="top-section">
+        <div>
+            <img src="logo/logo2.png" alt="Logo">
+            <button class="home-button"> Home </button>
+            <button class="logout-button" onclick="window.location.href='log_in_page.html'"> Logout </button>
+        </div>
+        <div>
+            <input type="text" placeholder="learn.codespace.co.za/courses/" class="search-input">
+            <button class="search-button"> Search </button>
+        </div>
+    </div>
+
+    <div style="display: flex">
+        <!-- Left Section - LMS Links -->
+        <div class="left-section">
+            <div class="scroll-section">
+                <p> LMS Links/Courses: </p>
+                <a href="https://learn.codespace.co.za/courses/144">
+                    <button class="course-button"> Student Orientation</button>
+                </a>
+                <a href="https://learn.codespace.co.za/courses/142">
+                    <button class="course-button"> Programming Fundamentals </button>
+                </a>                
+                <a href="https://learn.codespace.co.za/courses/147">
+                    <button class="course-button"> Intro to Web </button>
+                </a> 
+                <a href="https://learn.codespace.co.za/courses/140">
+                    <button class="course-button"> Employment Profile </button>
+                </a>
+                <a href="https://learn.codespace.co.za/courses/3">
+                    <button class="course-button"> Problem Solving Challenge </button>
+                </a>
+                <a href="https://learn.codespace.co.za/courses/153">
+                    <button class="course-button"> Interactive Web Apps </button>
+                </a>
+                <a href="https://learn.codespace.co.za/courses/149">
+                    <button class="course-button"> Student Orientaion: Part-Time </button>
+                </a>
+                <a href="https://learn.codespace.co.za/courses/154">
+                    <button class="course-button"> Dynamic Web Apps: Part 1 </button>
+                </a>
+                <a href="https://learn.codespace.co.za/courses/76">
+                    <button class="course-button">  21C </button>
+                </a>
+                <a href="https://learn.codespace.co.za/courses/71">
+                    <button class="course-button"> 21 Century Skills </button>
+                </a>
+                <a href="https://learn.codespace.co.za/courses/151">
+                    <button class="course-button"> Learning How to Learn </button>
+                </a>
+                <a href="https://learn.codespace.co.za/courses/150">
+                    <button class="course-button"> Professional Communication </button>
+                </a>
+                <a href="https://learn.codespace.co.za/courses/156">
+                    <button class="course-button"> Dynamic Web Apps: Part 2 </button>
+                </a>
+                <!-- Add more course buttons as needed -->
+            </div>
+            <div class="scroll-bar"></div>
+        </div>
+
+        <!-- Main Section -->
+        <div class="main-section">
+            <div class="loading-section">
+                Webscrape progress...
+            </div>
+            <div class="info-section">
+                <p> Number of course links: 10 </p>
+                <p> Text count: 500 </p>
+                <p> YouTube video count: 3 </p>
+                <p> Broken links: 2 </p>
+                <p> Image count: 20 </p>
+                <!-- Add more info as needed -->
+            </div>
+            <button class="extract-button"> Extract to Word Document</button>
+        </div>
+    </div>
+</body>
+</html>
+
