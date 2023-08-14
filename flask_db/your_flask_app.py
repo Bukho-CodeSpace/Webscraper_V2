@@ -21,9 +21,4 @@ def signup():
     registered_users[email] = {'name': name, 'surname': surname}
     return render_template('signup.html', success=True)
 
-@app.route('/login_page')
-def login_page():
-    return render_template('log_in_page.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
