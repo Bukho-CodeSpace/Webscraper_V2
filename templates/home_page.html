@@ -33,34 +33,35 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .main-sec {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
+            background-image: #070818d7 url(images/backgroundWebScraper.png) no-repeat center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
 
-.loading-sec {
-  text-align: center;
-  font-size: 20px;
-  margin-bottom: 20px;
-}
+        .loading-sec {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
 
-.loading-icon {
-  /* Add your loading logo properties here */
-}
+        .loading-icon {
+            /* Add your loading logo properties here */
+        }
 
-.info-sec {
-  text-align: center;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
+        .info-sec {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
 
-.button {
-  /* Add button styles as needed */
-}
+        .button {
+            /* Add button styles as needed */
+        }
 
 
         img {
@@ -139,7 +140,6 @@
         }
 
         .main-section {
-            background-image:  #070818d7 url(../templates/images/backgroundWebScraper.png) no-repeat center/cover;
             flex: 1;
             padding: 20px;
             display: flex;
@@ -173,23 +173,19 @@
             height: 30px;
         }
 
-        .scroll-section{
-            padding-top:3rem;
+        .scroll-section {
+            padding-top: 3rem;
             height: 300px;
         }
 
-        #courses-heading{
+        #courses-heading {
             padding-top: 5rem;
         }
-
-        
-
-
     </style>
 </head>
 
 <body>
-    
+
     <!-- Top Section -->
     <div class="top-section">
         <img src="logo/logo2.png" alt="Logo">
@@ -206,50 +202,36 @@
             </div>
         </div>
     </div>
-    <div class="main-sec">
-        <div class="loading-sec">
-            Webscrape progress...
-        </div>
-        <div class="info-sec">
-            <p> Number of course links: 10 </p>
-            <p> Text count: 500 </p>
-            <p> YouTube video count: 3 </p>
-            <p> Broken links: 2 </p>
-            <p> Image count: 20 </p>
-            <!-- Add more info as needed -->
-        </div>
-        <button class="button extract-button"> Extract to Word Document</button>
-    </div>
-    </div>
-    
+
+
 
     <div class="left-section">
         <h2 #id="courses-heading"><strong>LMS Links/Courses:</strong></h2>
         <div class="scroll-section">
-            <select id="courseDropdown" class="button course-dropdown" >
-                    <option value="" disabled selected>Select a Course</option>
-                    <option value="https://learn.codespace.co.za/courses/144">Student Orientation</option>
-                    <option value="https://learn.codespace.co.za/courses/142">Programming Fundamentals</option>
-                    <option value="https://learn.codespace.co.za/courses/147">Intro to Web</option>
-                    <option value="https://learn.codespace.co.za/courses/140">Employment Profile</option>
-                    <option value="https://learn.codespace.co.za/courses/3">Problem Solving Challenge</option>
-                    <option value="https://learn.codespace.co.za/courses/153">Interactive Web Apps</option>
-                    <option value="https://learn.codespace.co.za/courses/149">Student Orientaion: Part-Time</option>
-                    <option value="https://learn.codespace.co.za/courses/154">Dynamic Web Apps: Part 1</option>
-                    <option value="https://learn.codespace.co.za/courses/76">21C</option>
-                    <option value="https://learn.codespace.co.za/courses/71">21 Century Skills</option>
-                    <option value="https://learn.codespace.co.za/courses/151">Learning How to Learn</option>
-                    <option value="https://learn.codespace.co.za/courses/150">Professional Communication</option>
-                    <option value="https://learn.codespace.co.za/courses/156">Dynamic Web Apps: Part 2</option>
-                
+            <select id="courseDropdown" class="button course-dropdown">
+                <option value="" disabled selected>Select a Course</option>
+                <option value="https://learn.codespace.co.za/courses/144">Student Orientation</option>
+                <option value="https://learn.codespace.co.za/courses/142">Programming Fundamentals</option>
+                <option value="https://learn.codespace.co.za/courses/147">Intro to Web</option>
+                <option value="https://learn.codespace.co.za/courses/140">Employment Profile</option>
+                <option value="https://learn.codespace.co.za/courses/3">Problem Solving Challenge</option>
+                <option value="https://learn.codespace.co.za/courses/153">Interactive Web Apps</option>
+                <option value="https://learn.codespace.co.za/courses/149">Student Orientaion: Part-Time</option>
+                <option value="https://learn.codespace.co.za/courses/154">Dynamic Web Apps: Part 1</option>
+                <option value="https://learn.codespace.co.za/courses/76">21C</option>
+                <option value="https://learn.codespace.co.za/courses/71">21 Century Skills</option>
+                <option value="https://learn.codespace.co.za/courses/151">Learning How to Learn</option>
+                <option value="https://learn.codespace.co.za/courses/150">Professional Communication</option>
+                <option value="https://learn.codespace.co.za/courses/156">Dynamic Web Apps: Part 2</option>
+
                 <!-- Add more course options as needed -->
             </select>
             <!-- <button class="button course-button" id="goToCourseButton">
                 Go to Course
             </button> -->
-            
 
-        
+
+
         </div>
         <div class="scroll-bar"></div>
     </div>
@@ -265,11 +247,11 @@
             }
         });
     </script>
-    
+
 
     <!-- Main Section -->
-    <div class="main-section">
-        <!-- <div class="loading-section"> 
+    <!--div class="main-section">
+        <div class="loading-section"> 
             Webscrape progress...
         </div>
         <div class="info-section" style="background-image: #070818d7 url(/images/backgroundWebScraper.png) no-repeat center/cover">
@@ -278,10 +260,10 @@
             <p> YouTube video count: 3 </p>
             <p> Broken links: 2 </p>
             <p> Image count: 20 </p> -->
-            <!-- Add more info as needed -->
+        <!-- Add more info as needed -->
         <!-- </div>
-        <button class="button extract-button"> Extract to Word Document</button-->
-    </div>
+        <button class="button extract-button"> Extract to Word Document</button>
+    </div-->
     
 </body>
 
