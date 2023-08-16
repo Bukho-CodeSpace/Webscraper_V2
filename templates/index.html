@@ -36,17 +36,20 @@
       }
 
       .login-form {
-        background-color: white;
+        background-color: #343a40;
+        color: #649e8f;
+        width: 100%;
         padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        width: 300px;
+        /* border-radius: 8px; */
+        /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+        width: 500px;
       }
 
       .login-form label {
         font-weight: bold;
         display: block;
         margin-bottom: 5px;
+        background-color: #fff;
       }
 
       .login-form input {
@@ -54,26 +57,35 @@
         padding: 8px;
         margin-bottom: 10px;
         border: 1px solid #ccc;
-        border-radius: 4px;
+        border-radius: 0.5rem;
       }
 
       .login-form button {
         background-color: #649e8f;
         color: white;
         border: none;
-        border-radius: 4px;
+        border-radius: 0.5rem;
         padding: 10px;
         width: 100%;
         cursor: pointer;
       }
 
       .smallerText {
+        display: flex;
+        justify-content: center;
         font-size: smaller;
       }
 
       #password {
-        padding-bottom: 0;
+        padding-bottom: 0.5rem;
       }
+
+      .sign-in{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 0.5rem;
+      }
+      
     </style>
   </head>
   <body>
@@ -81,13 +93,13 @@
       <img src="logo/logo2.png" alt="Logo" />
     </div>
     <div class="login-form">
-      <h2>Sign in</h2>
+      <div class="sign-in"><h2>Sign in</h2></div>
       <form action="#" method="post">
-        <label for="name"> *Email: </label>
-        <input type="email" id="name" name="name" required />
+        <label for="name"></label>
+        <input type="email" id="name" class ="field" placeholder="Enter Email" name="name" required />
 
-        <label for="Password"> *Password: </label>
-        <input type="password" id="password" name="Password" required />
+        <label for="Password"></label>
+        <input type="password" id="password" class ="field" placeholder="Enter Password" name="Password" required />
 
         <p class="smallerText">Please use your LMS password to log in.</p>
         <br />
