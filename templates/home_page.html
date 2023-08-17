@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< Updated upstream
 
 <head>
   <meta charset="UTF-8" />
@@ -38,6 +39,85 @@
       padding: 5px 10px;
       cursor: pointer;
     }
+=======
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <style>
+    * {
+        box-sizing: border-box;
+      }
+
+       h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: 100%;
+            font-weight: 400;
+            color: #e5562e;
+        }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #background {
+            background-image: #070818d7 url(https://i.pinimg.com/564x/c1/f0/b7/c1f0b71e39f905cfc52cc305b6da0bb5.jpg) no-repeat center/cover;
+        }
+
+      img {
+        height: 35px; /* Adjust the height as needed */
+        margin-right: 10px;
+      }
+
+      .top-section {
+        background-color: #343a40;
+        color: white;
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        padding: 10px;
+        width: 100%;
+      }
+
+      .button {
+            border-radius: 0.3rem;
+        }
+
+        .logout-button {
+            padding-right: 0.5rem;
+        }
+
+      .home-button,
+      .logout-button,
+      .search-button {
+        background-color: #649e8f;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+
+      .nav-bar-item-right {
+            display: flex;
+            justify-content: end;
+            padding-left: 0.3rem;
+            padding-right: 0.3rem;
+        }
+
+
+      .search-input {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 0.3rem;
+      }
+>>>>>>> Stashed changes
 
     .search-input {
       padding: 5px;
@@ -84,9 +164,49 @@
       padding: 20px;
     }
 
+<<<<<<< Updated upstream
     .info-section {
       margin-top: 20px;
     }
+=======
+      .extract-button {
+        background-color: #7a7a7a;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        align-self: flex-end;
+        cursor: pointer;
+      }
+
+    #main-bg {
+    background-image: url(https://i.pinimg.com/564x/c1/f0/b7/c1f0b71e39f905cfc52cc305b6da0bb5.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <!-- Top Section -->
+    <div class="top-section">
+            <img src="logo/logo2.png" alt="Logo">
+            <div class="nav-bar-item-right">
+                <div class="nav-bar-item">
+                    <input type="text" placeholder="learn.codespace.co.za/courses/" class="search-input">
+                </div>
+                <div class="nav-bar-item-right">
+                    <button class="button search-button"> Search </button>
+                </div>
+                <div class="nav-bar-item">
+                    <!-- <button class="home-button"> Home </button> -->
+                    <button class="button logout-button" onclick="window.location.href='log_in_page.html'"> Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+>>>>>>> Stashed changes
 
     .extract-button {
       background-color: #7a7a7a;
@@ -99,6 +219,7 @@
   </style>
 </head>
 
+<<<<<<< Updated upstream
 <body>
   <!-- Top Section -->
   <div class="top-section">
@@ -108,6 +229,69 @@
       <button class="logout-button" onclick="window.location.href='log_in_page.html'">
         Logout
       </button>
+=======
+                        <input type="radio" name="selected_course" value="https://learn.codespace.co.za/courses/142">
+                        <label class="course-button" for="selected_course">Programming Fundamentals</label><br><br>
+
+                        <input type="radio" name="selected_course" value="https://learn.codespace.co.za/courses/147">
+                        <label class="course-button" for="selected_course">Intro to Web</label><br><br>
+
+                        <input type="radio" name="selected_course" value="https://learn.codespace.co.za/courses/140">
+                        <label class="course-button" for="selected_course">Employment Profile</label><br><br>
+
+                        <input type="radio" name="selected_course" value="https://learn.codespace.co.za/courses/3">
+                        <label class="course-button" for="selected_course">Problem Solving Challenge</label><br><br>
+
+                        <input type="radio" name="selected_course" value="https://learn.codespace.co.za/courses/153">
+                        <label class="course-button" for="selected_course">Interactive Web Apps</label><br><br>
+
+                        <input type="radio" name="selected_course" value="https://learn.codespace.co.za/courses/149">
+                        <label class="course-button" for="selected_course">Student Orientaion: Part-Time</label><br><br>
+
+                        <input type="radio" name="selected_course" value="https://learn.codespace.co.za/courses/154">
+                        <label class="course-button" for="selected_course">Dynamic Web Apps: Part 1</label><br><br>
+
+                        <input type="radio" name="selected_course" value="https://learn.codespace.co.za/courses/76">
+                        <label class="course-button" for="selected_course">21C</label><br><br>
+
+                        <input type="radio" name="selected_course" value="https://learn.codespace.co.za/courses/71">
+                        <label class="course-button" for="selected_course">21 Century Skills</label><br><br>
+
+                        <input type="radio" name="selected_course" value="https://learn.codespace.co.za/courses/151">
+                        <label class="course-button" for="selected_course">Learning How to Learn</label><br><br>
+
+                        <input type="radio" name="selected_course" value="https://learn.codespace.co.za/courses/150">
+                        <label class="course-button" for="selected_course">Professional Communication</label><br><br>
+
+                        <input type="radio" name="selected_course" value="https://learn.codespace.co.za/courses/156">
+                        <label class="course-button" for="selected_course">Dynamic Web Apps: Part 2</label><br><br>
+
+                        <input class="course-button" type="submit" value="Submit">
+                </form>
+            </form>
+
+          <!-- Add more course buttons as needed -->
+        </div>
+        <div class="scroll-bar"></div>
+        <!--what is this?-->
+      </div>
+
+      <!-- Main Section -->
+      <div id="main-bg">
+      <div class=" main-section">
+        <div class="loading-section">Webscrape progress...</div>
+        <div class="info-section">
+          <p>Number of course links: 10</p>
+          <p>Text count: 500</p>
+          <p>YouTube video count: 3</p>
+          <p>Broken links: 2</p>
+          <p>Image count: 20</p>
+          <!-- Add more info as needed -->
+        </div>
+        <button class="button extract-button">Extract to Word Document</button>
+      </div>
+      </div>
+>>>>>>> Stashed changes
     </div>
     <div>
       <input type="text" placeholder="learn.codespace.co.za/courses/" class="search-input" />
