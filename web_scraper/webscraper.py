@@ -7,113 +7,137 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from docx import Document
 import pandas as pd
+import requests
+import cgi
+from flask import Flask, request, render_template
 
-# Set pandas options to display the full link without truncation
-pd.set_option("display.max_colwidth", None)
 
-# base url
-base_url = "https://learn.codespace.co.za/login"
+app = Flask(__name__)
 
-# initialize Selenium WebDriver
-driver = webdriver.Chrome()
+@app.route("/", methods=["GET", "POST"])
+def index():
+    if request.method == "POST":
+        selected_course = request.form.get("selected_course")
 
-# login
-driver.get(base_url)
-wait = WebDriverWait(driver, 10)
 
-username = wait.until(EC.presence_of_element_located((By.NAME, 'email')))
-password = wait.until(EC.presence_of_element_located((By.NAME, 'password')))
+        # Set pandas options to display the full link without truncation
+        pd.set_option("display.max_colwidth", None)
 
-username.send_keys('')
-password.send_keys('')
+        # base url
+        base_url = "https://learn.codespace.co.za/login"
 
-login_button = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.button.is-primary')))
-login_button.click()
+        # initialize Selenium WebDriver
+        driver = webdriver.Chrome()
 
-time.sleep(15)  # increase sleep time
+        # login
+        driver.get(base_url)
+        wait = WebDriverWait(driver, 10)
 
-# get all links function
-def get_all_links(url):
-    driver.get(url)
-    time.sleep(15)  # increase sleep time
-    html = driver.page_source
-    soup = BeautifulSoup(html, 'html.parser')
-    anchors = soup.find_all('a')
-    links = set()
-    for anchor in anchors:
-        link = anchor.get('href')
-        if link and not link.startswith('javascript:;'):
-            full_link = urljoin(url, link)
-            links.add(full_link)
-    return links
+        username = wait.until(EC.presence_of_element_located((By.NAME, 'email')))
+        password = wait.until(EC.presence_of_element_located((By.NAME, 'password')))
 
-# list of course urls
-course_urls = ["https://learn.codespace.co.za/courses/154"]
+        username.send_keys('david@codespace.co.za')
+        password.send_keys('Dave36code@#')
 
-link_info = []
+        login_button = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.button.is-primary')))
+        login_button.click()
 
-# Create a single Word document
-doc = Document()
-
-# for each course url, get all links and test them
-for course_url in course_urls:
-    print(f"\nGetting links for: {course_url}")
-    all_links = get_all_links(course_url)
-    for link in all_links:
-        driver.get(link)
         time.sleep(15)  # increase sleep time
 
-        # Check if page loaded properly
-        if "Page not found" in driver.title or "Error" in driver.title:
-            status = "Error"
-            text_count = video_count = 0
-            video_links = []
-        else:
-            status = "OK"
+        # get all links function
+        def get_all_links(url):
+            driver.get(url)
+            time.sleep(15)  # increase sleep time
             html = driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
-            content_blocks = soup.find_all(class_='lesson-content-block column')
+            anchors = soup.find_all('a')
+            links = set()
+            for anchor in anchors:
+                link = anchor.get('href')
+                if link and not link.startswith('javascript:;'):
+                    full_link = urljoin(url, link)
+                    links.add(full_link)
+            return links
 
-            text_count = sum(len(block.get_text().split()) for block in content_blocks)
+        # Get form data
+        form = cgi.FieldStorage()
+        selected_course_url = form.getvalue('selected_course')
 
-            video_elements = soup.find_all('iframe', src=lambda x: x and 'youtube.com' in x)
-            video_count = len(video_elements)
-            video_links = [el['src'] for el in video_elements]
+        # list of course urls
+        course_urls = [selected_course_url]
 
-            h4_elements = soup.find_all('h4')
-            h4_titles = [h4.get_text().strip() for h4 in h4_elements]
+        link_info = []
 
-            main_text = [block.get_text().strip() for block in content_blocks]
 
-            # Add titles and text to the Word document
-            for title, text in zip(h4_titles, main_text):
-                doc.add_heading(title, level=1)
-                doc.add_paragraph(text)
+        # Create a single Word document                                                                        
+        doc = Document()
 
-        link_info.append({
-            "Link": link,
-            "Status": status,
-            "Text Count": text_count,
-            "Video Count": video_count,
-            "Video Links": video_links,
-            "H4": h4_titles,
-            "main_text": main_text,
-        })
+        # for each course url, get all links and test them
+        for course_url in course_urls: 
+            print(f"\nGetting links for: {course_url}")
+            all_links = get_all_links(course_url)
+            for link in all_links:
+                driver.get(link)
+                time.sleep(15)  # increase sleep time
 
-# Save the single Word document
-doc.save("titles_and_text3.docx")
+                # Check if page loaded properly
+                if "Page not found" in driver.title or "Error" in driver.title:
+                    status = "Error"
+                    text_count = video_count = 0
+                    video_links = []
+                else:
+                    status = "OK"
+                    html = driver.page_source
+                    soup = BeautifulSoup(html, 'html.parser')
+                    content_blocks = soup.find_all(class_='lesson-content-block column')
 
-# Print summary
-print(f"\nTotal links: {len(all_links)}")
+                    text_count = sum(len(block.get_text().split()) for block in content_blocks)
 
-# Set the pandas display option to show all columns and rows
-import pandas as pd
-pd.set_option("display.max_columns", None)
-pd.set_option("display.max_rows", None)
+                    video_elements = soup.find_all('iframe', src=lambda x: x and 'youtube.com' in x)
+                    video_count = len(video_elements)
+                    video_links = [el['src'] for el in video_elements]
 
-# Create DataFrame with link info
-df = pd.DataFrame(link_info, columns=["Link", "Status", "Text Count", "Video Count", "Video Links", "H4", "main_text"])
-print(df)
+                    h4_elements = soup.find_all('h4')
+                    h4_titles = [h4.get_text().strip() for h4 in h4_elements]
 
-# close WebDriver
-driver.quit()
+                    main_text = [block.get_text().strip() for block in content_blocks]
+
+                    # Add titles and text to the Word document
+                    for title, text in zip(h4_titles, main_text):
+                        doc.add_heading(title, level=1)
+                        doc.add_paragraph(text)
+
+                link_info.append({
+                    "Link": link,
+                    "Status": status,
+                    "Text Count": text_count,
+                    "Video Count": video_count,
+                    "Video Links": video_links,
+                    "H4": h4_titles,
+                    "main_text": main_text,
+                })
+
+        # Save the single Word document
+        doc.save("titles_and_text3.docx")
+
+        # Print summary
+        print(f"\nTotal links: {len(all_links)}")
+
+        # Set the pandas display option to show all columns and rows
+        import pandas as pd
+        pd.set_option("display.max_columns", None)
+        pd.set_option("display.max_rows", None)
+
+        # Create DataFrame with link info
+        df = pd.DataFrame(link_info, columns=["Link", "Status", "Text Count", "Video Count", "Video Links", "H4", "main_text"])
+        print(df)
+
+        # close WebDriver
+        driver.quit()
+        
+        return render_template("home_page.html")  # Replace with your HTML filename
+    return render_template("home_page.html")  # Replace with your HTML filename
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
