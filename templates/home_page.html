@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,21 @@
         /* Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
-        *{
+        * {
             padding: 0;
-	margin: 0;
+            margin: 0;
             box-sizing: border-box;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: 100%;
+            font-weight: 400;
+            color: #e5562e;
         }
 
         body {
@@ -21,9 +33,13 @@
             display: flex;
             flex-direction: column;
         }
+        
+        
+
 
         img {
-            height: 35px; /* Adjust the height as needed */
+            height: 35px;
+            /* Adjust the height as needed */
             margin-right: 10px;
         }
 
@@ -33,6 +49,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            min-height: 4rem;
             padding: 10px;
             width: 100%;
         }
@@ -41,7 +58,7 @@
             border-radius: 0.3rem;
         }
 
-        .logout-button{
+        .logout-button {
             padding-right: 0.2rem;
         }
 
@@ -64,6 +81,7 @@
 
         .search-input {
             padding: 5px;
+            padding: 5px;
             border: 1px solid #ccc;
         }
 
@@ -76,7 +94,7 @@
         }
 
         .course-button {
-            background-color: #e5562e;
+            background-color: #649E8F;
             color: white;
             border: none;
             padding: 5px 10px;
@@ -112,98 +130,123 @@
         }
 
         .extract-button {
-            background-color: #7A7A7A;
+            background-color: #e5562e;
             color: white;
             border: none;
             padding: 10px 20px;
             align-self: flex-end;
             cursor: pointer;
         }
+
+        .course-dropdown {
+            border: none;
+            background-color: #e5562e;
+            color: white;
+            width: 100%;
+            height: 30px;
+        }
+
+        .scroll-section{
+            padding-top:3rem;
+            height: 300px;
+        }
+
+        #courses-heading{
+            padding-top: 5rem;
+        }
+
+        #background{
+            background-image: #070818d7 url(https://i.pinimg.com/564x/c1/f0/b7/c1f0b71e39f905cfc52cc305b6da0bb5.jpg) no-repeat center/cover;
+        }
+
+
     </style>
 </head>
+
 <body>
+    <div id="background"><img src="#background{
+        background-image: #070818d7 url(https://i.pinimg.com/564x/c1/f0/b7/c1f0b71e39f905cfc52cc305b6da0bb5.jpg) no-repeat center/cover;
+    }"></div>
+    
     <!-- Top Section -->
     <div class="top-section">
         <img src="logo/logo2.png" alt="Logo">
         <div class="nav-bar-item-right">
-            <div class="nav-bar-item">
-                <input type="text" placeholder="learn.codespace.co.za/courses/" class="search-input">
+            <div class="button nav-bar-item">
+                <input type="text" placeholder="learn.codespace.co.za/courses/" class="button search-input">
             </div>
-            <div class="nav-bar-item-right">
+            <div class="button nav-bar-item-right">
                 <button class="button search-button"> Search </button>
             </div>
-            <div class="nav-bar-item">
+            <div class="button nav-bar-item">
                 <!-- <button class="home-button"> Home </button> -->
                 <button class="button logout-button" onclick="window.location.href='index.html'"> Logout </button>
             </div>
         </div>
     </div>
+    
+    
 
-    <div style="display: flex">
-        <!-- Left Section - LMS Links -->
-        <div class="left-section">
-            <div class="scroll-section">
-                <p> LMS Links/Courses: </p>
-                <a href="https://learn.codespace.co.za/courses/144" >
-                    <button class="course-button"> Student Orientation</button>
-                </a>
-                <a href="https://learn.codespace.co.za/courses/142" >
-                    <button class="course-button"> Programming Fundamentals </button>
-                </a>                
-                <a href="https://learn.codespace.co.za/courses/147" >
-                    <button class="course-button"> Intro to Web </button>
-                </a> 
-                <a href="https://learn.codespace.co.za/courses/140" >
-                    <button class="course-button"> Employment Profile </button>
-                </a>
-                <a href="https://learn.codespace.co.za/courses/3" >
-                    <button class="course-button"> Problem Solving Challenge </button>
-                </a>
-                <a href="https://learn.codespace.co.za/courses/153" >
-                    <button class="course-button"> Interactive Web Apps </button>
-                </a>
-                <a href="https://learn.codespace.co.za/courses/149" >
-                    <button class="course-button"> Student Orientaion: Part-Time </button>
-                </a>
-                <a href="https://learn.codespace.co.za/courses/154" >
-                    <button class="course-button"> Dynamic Web Apps: Part 1 </button>
-                </a>
-                <a href="https://learn.codespace.co.za/courses/76" >
-                    <button class="course-button">  21C </button>
-                </a>
-                <a href="https://learn.codespace.co.za/courses/71" >
-                    <button class="course-button"> 21 Century Skills </button>
-                </a>
-                <a href="https://learn.codespace.co.za/courses/151" >
-                    <button class="course-button"> Learning How to Learn </button>
-                </a>
-                <a href="https://learn.codespace.co.za/courses/150" >
-                    <button class="course-button"> Professional Communication </button>
-                </a>
-                <a href="https://learn.codespace.co.za/courses/156">
-                    <button class="course-button"> Dynamic Web Apps: Part 2 </button>
-                </a>
-                <!-- Add more course buttons as needed -->
-            </div>
-            <div class="scroll-bar"></div>
-        </div>
+    <div class="left-section">
+        <h2 #id="courses-heading"><strong>LMS Links/Courses:</strong></h2>
+        <div class="scroll-section">
+            <select id="courseDropdown" class="button course-dropdown" >
+                    <option value="" disabled selected>Select a Course</option>
+                    <option value="https://learn.codespace.co.za/courses/144">Student Orientation</option>
+                    <option value="https://learn.codespace.co.za/courses/142">Programming Fundamentals</option>
+                    <option value="https://learn.codespace.co.za/courses/147">Intro to Web</option>
+                    <option value="https://learn.codespace.co.za/courses/140">Employment Profile</option>
+                    <option value="https://learn.codespace.co.za/courses/3">Problem Solving Challenge</option>
+                    <option value="https://learn.codespace.co.za/courses/153">Interactive Web Apps</option>
+                    <option value="https://learn.codespace.co.za/courses/149">Student Orientaion: Part-Time</option>
+                    <option value="https://learn.codespace.co.za/courses/154">Dynamic Web Apps: Part 1</option>
+                    <option value="https://learn.codespace.co.za/courses/76">21C</option>
+                    <option value="https://learn.codespace.co.za/courses/71">21 Century Skills</option>
+                    <option value="https://learn.codespace.co.za/courses/151">Learning How to Learn</option>
+                    <option value="https://learn.codespace.co.za/courses/150">Professional Communication</option>
+                    <option value="https://learn.codespace.co.za/courses/156">Dynamic Web Apps: Part 2</option>
+                
+                <!-- Add more course options as needed -->
+            </select>
+            <!-- <button class="button course-button" id="goToCourseButton">
+                Go to Course
+            </button> -->
+            
 
-        <!-- Main Section -->
-        <div class="main-section">
-            <div class="loading-section">
-                Webscrape progress...
-            </div>
-            <div class="info-section">
-                <p> Number of course links: 10 </p>
-                <p> Text count: 500 </p>
-                <p> YouTube video count: 3 </p>
-                <p> Broken links: 2 </p>
-                <p> Image count: 20 </p>
-                <!-- Add more info as needed -->
-            </div>
-            <button class="extract-button"> Extract to Word Document</button>
+        
         </div>
+        <div class="scroll-bar"></div>
     </div>
-</body>
-</html>
 
+    <script>
+        const dropdown = document.getElementById('courseDropdown');
+        const goToCourseButton = document.getElementById('goToCourseButton');
+
+        goToCourseButton.addEventListener('click', () => {
+            const selectedCourse = dropdown.value;
+            if (selectedCourse) {
+                window.open(selectedCourse, '_blank');
+            }
+        });
+    </script>
+    
+
+    <!-- Main Section -->
+    <div class="main-section">
+        <!-- <div class="loading-section"> 
+            Webscrape progress...
+        </div>
+        <div class="info-section" style="background-image: #070818d7 url(/images/backgroundWebScraper.png) no-repeat center/cover">
+            <p> Number of course links: 10 </p>
+            <p> Text count: 500 </p>
+            <p> YouTube video count: 3 </p>
+            <p> Broken links: 2 </p>
+            <p> Image count: 20 </p> -->
+            <!-- Add more info as needed -->
+        <!-- </div>
+        <button class="button extract-button"> Extract to Word Document</button>
+    </div>
+    
+</body>
+
+</html>
