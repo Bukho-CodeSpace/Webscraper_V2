@@ -65,7 +65,7 @@ def index():
                         links.add(full_link)
                 return links
             
-            time.sleep(60)  # increase sleep time
+            time.sleep(30)  # increase sleep time
             # Get form data
             # form = cgi.FieldStorage()
             # selected_course_url = form.getvalue('selected_course')
