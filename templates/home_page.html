@@ -95,7 +95,7 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background-image: url(images/backgroundWebScraper.png);
+      background-image: url(static/images/backgroundWebScraper.png);
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -224,7 +224,7 @@
 <body>
   <!-- Top Section -->
   <div class="top-section">
-    <img src="logo/logo2.png" alt="Logo">
+    <img src="{{ url_for('static', filename='logo/logo2.png') }}" alt="Logo" />
     <div class="nav-bar-item-right">
       <div class="nav-bar-item">
         <input type="text" placeholder="learn.codespace.co.za/courses/" class="search-input">
