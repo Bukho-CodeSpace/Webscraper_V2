@@ -7,8 +7,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from docx import Document
 import pandas as pd
-import cgi
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
 from contextlib import contextmanager
 
 @contextmanager
@@ -22,8 +21,17 @@ def create_webdriver():
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET"])
+@app.route("/", methods=["GET", "POST"])  # Allow both GET and POST requests
 def index():
+    if request.method == "POST":
+        # Process the sign-in form data here
+        # Assuming the sign-in is successful, you can redirect to the home page
+        return redirect(url_for("home"))  # Redirect to the "home" route
+    return render_template("index.html")  # Replace with your HTML filename
+
+
+@app.route("/home", methods=["GET"])
+def home():
     #if request.method == "POST":
     selected_course = request.args.get("selected_course")
     print(f"Selected Course URL: {selected_course}")
@@ -65,10 +73,7 @@ def index():
                         links.add(full_link)
                 return links
             
-            time.sleep(30)  # increase sleep time
-            # Get form data
-            # form = cgi.FieldStorage()
-            # selected_course_url = form.getvalue('selected_course')
+            time.sleep(30)  # increase sleep time for the web scraper to recognise the link parsed
 
             # list of course urls
             course_urls = [selected_course]
