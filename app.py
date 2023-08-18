@@ -138,12 +138,30 @@ def home():
             # Create DataFrame with link info
             df = pd.DataFrame(link_info, columns=["Link", "Status", "Text Count", "Video Count", "Video Links", "H4", "main_text"])
             print(df)
-
+            
             # Save the single Word document
             doc.save("titles_and_text3.docx")
-
+            
+            # Calculate summary statistics
+            total_links = len(all_links)
+            total_text_count = df["Text Count"].sum()
+            total_video_count = df["Video Count"].sum()
+            total_broken_links = df[df["Status"] == "Error"].shape[0]
+            # total_image_count = ...  # You need to calculate this based on your data
+            
             # close WebDriver
             driver.quit()
+            
+            # Pass data to the template
+            return render_template(
+                "home_page.html",
+                total_links=total_links,
+                total_text_count=total_text_count,
+                total_video_count=total_video_count,
+                total_broken_links=total_broken_links,
+                # total_image_count=total_image_count,
+                link_infos=link_info
+            )
         return render_template("home_page.html")  # Replace with your HTML filename
     return render_template("home_page.html")  # Replace with your HTML filename
 if __name__ == "__main__":

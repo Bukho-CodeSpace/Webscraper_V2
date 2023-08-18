@@ -410,13 +410,29 @@
       <div class="loading-section">Webscrape progress...</div>
       <div class="info-section">
         <b>
-          <p>Number of course links: 10</p>
-          <p>Text count: 500</p>
-          <p>YouTube video count: 3</p>
-          <p>Broken links: 2</p>
-          <p>Image count: 20</p>
+          <p>Number of course links: {{ total_links }}</p>
+          <p>Text count: {{ total_text_count }}</p>
+          <p>YouTube video count: {{ total_video_count }}</p>
+          <p>Broken links: {{ total_broken_links }}</p>
+          <!--<p>Image count: {{ total_image_count }}</p>-->
         </b>
         <!-- Add more info as needed -->
+        <h1>Scraped Link Details</h1>
+        <table>
+            <tr>
+                <th>Link</th>
+                <th>Status</th>
+                <th>Text Count</th>
+                <th>Video Count</th>
+            </tr>
+            {% for link_info in link_infos %}
+            <tr>
+                <td><a href="{{ link_info.Link }}">{{ link_info.Link }}</a></td>
+                <td>{{ link_info.Status }}</td>
+                <td>{{ link_info.Text_Count }}</td>
+                <td>{{ link_info.Video_Count }}</td>
+            </tr>
+            {% endfor %}
       </div>
       <!-- <button class="extract-button">Extract to Word Document</button> -->
     </div>
